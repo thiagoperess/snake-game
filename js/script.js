@@ -1,6 +1,6 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
-let box = 32;
+let box = 24;
 let snake = [];
 snake[0] = {
     x: 8 * box,
@@ -17,14 +17,14 @@ function createBG() {
     context.fillStyle = "black";
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
-
+// criando a serpente
 function createSnake(){
     for(i = 0; i < snake.length; i++){
         context.fillStyle = "green";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
-
+// criando a comida da serpente
 function drawFood(){
     context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
@@ -40,7 +40,7 @@ function update(event){
     if(event.keyCode == 40 && direction != "up") direction = "down";
 }
 
-function startGame(){    
+function startGame(){
 
     // cria o 'loop' infito da serpente
     if(snake[0].x > 15 * box && direction == 'right') snake[0].x = 0;
